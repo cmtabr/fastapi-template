@@ -1,0 +1,4 @@
+# Ignore Python common files/directories
+venv*
+__pycache__*
+*.pyc
