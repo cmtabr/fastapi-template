@@ -1,7 +1,6 @@
 from fastapi import FastAPI
-
 from contextlib import asynccontextmanager
-
+from routers import auth_router
 from utils import Logger
 
 _logger = Logger(logger_name=__name__).logger
@@ -12,9 +11,9 @@ async def lifespan(app: FastAPI):
     Lifespan context manager for FastAPI app.
     This is where you can set up and tear down resources.
     """
-    _logger.info("Starting up FastAPI app")
+    _logger.info("Starting up FastAPI App")
     yield
-    _logger.info("Shutting down FastAPI app")
+    _logger.info("Tearing down FastAPI App")
 
 app = FastAPI(
     title="FastAPI Template",
@@ -27,6 +26,9 @@ app = FastAPI(
     },
     lifespan=lifespan
 )
+
+app.include_router(auth_router)
+
 
 @app.get("/", status_code=200, tags=["Health Check"])
 async def health_check() -> dict:
