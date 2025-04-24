@@ -30,7 +30,6 @@ app = FastAPI(
 app.include_router(auth_router)
 app.include_router(user_router)
 
-
 @app.get("/", status_code=200, tags=["Health Check"])
 async def health_check() -> dict:
     _logger.info(
