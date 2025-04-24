@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
-from routers import auth_router
+from routers import auth_router, user_router
 from utils import Logger
 
 _logger = Logger(logger_name=__name__).logger
@@ -28,6 +28,7 @@ app = FastAPI(
 )
 
 app.include_router(auth_router)
+app.include_router(user_router)
 
 
 @app.get("/", status_code=200, tags=["Health Check"])
