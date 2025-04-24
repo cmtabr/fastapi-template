@@ -26,7 +26,9 @@ services:
     build:
       context: api/
       dockerfile: Dockerfile
-    command: uvicorn app:app --host 0.0.0.0 --port 5000
+    # uncomment the flag below to enable hot reload
+    # additionally uncomment the volumes section
+    command: uvicorn app:app --host 0.0.0.0 --port 5000 # --reload 
     ports:
       - 5000:5000
     # uncomment the following line to mount 
