@@ -1,9 +1,2 @@
-# Ignores itself
-.dockerignore
-
-# Ignores python common files
-*.pyc
-__pycache__/
-
-# Enviroment stuff
-venv/
+# Ignore the virtual environment
+venv
