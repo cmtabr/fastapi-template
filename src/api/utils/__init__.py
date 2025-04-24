@@ -5,3 +5,4 @@ __author__ = "cmtabr"
 
 # Packge modules, submodules and functions importing
 from .logger import Logger
+from .session_manager import SessionManager
