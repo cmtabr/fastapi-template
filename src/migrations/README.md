@@ -22,7 +22,7 @@ This naming convention helps to keep track of the order in which migrations were
 
   Or, if you want to create an empty migration file, run:  
   ```bash
-    sh create_migration.sh
+    sh scripts/create_migration.sh
   ```
   This will create a new migration file in the `versions` directory with the current timestamp.
 
