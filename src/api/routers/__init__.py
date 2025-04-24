@@ -4,3 +4,4 @@ __author__ = "cmtabr"
 
 
 # Packge modules, submodules and functions importing
+from .auth_router import auth_router
