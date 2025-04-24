@@ -4,4 +4,5 @@ __author__ = "cmtabr"
 
 
 # Packge modules, submodules and functions 
-from .models import Base, Users
+from .users import Users
+from .shared import Base

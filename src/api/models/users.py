@@ -1,15 +1,8 @@
-from sqlalchemy import MetaData, String
-from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
+from sqlalchemy import String
+from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.types import DateTime
-
 from datetime import datetime
-
-metadata = MetaData()
-
-
-class Base(DeclarativeBase):
-    pass
-
+from .shared import Base, metadata
 
 class Users(Base):
     __tablename__ = "users"
