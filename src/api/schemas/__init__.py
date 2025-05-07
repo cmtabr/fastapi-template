@@ -4,7 +4,7 @@ __author__ = "cmtabr"
 
 
 # Packge modules, submodules and functions importing
-from .token_schema import TokenHeaderSchema
+from .token_schema import TokenSchema
 from .user_schema import (
     CreateUserSchema,
     GetUserSchema,

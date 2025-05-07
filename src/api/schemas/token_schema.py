@@ -1,14 +1,15 @@
 from pydantic import BaseModel
 
+from typing import Annotated
 
-class TokenHeaderSchema(BaseModel):
+
+class TokenSchema(BaseModel):
     """
     Token schema for the API.
     """
     model_config = {'extra': 'forbid'}
 
-    key: str
-    value: str
+    value: Annotated[str, "JWT token"]
 
     @property
     def with_typo(self) -> str:
