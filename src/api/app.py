@@ -1,7 +1,7 @@
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
-from routers import auth_router, user_router
-from utils import Logger
+from api.routers import auth_router, user_router
+from api.utils import Logger
 
 _logger = Logger(logger_name=__name__).logger
 
