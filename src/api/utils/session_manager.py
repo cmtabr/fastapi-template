@@ -1,9 +1,11 @@
 from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker, scoped_session, Session
-from config import DatabaseSettings
+from sqlalchemy.orm import scoped_session, Session, sessionmaker
+from api.config import DatabaseSettings
 from .logger import Logger
 
 _logger = Logger(logger_name=__name__).logger
+
+_database_settings = DatabaseSettings() # Load settings once at the module level
 
 
 class SessionFactory:
@@ -13,11 +15,10 @@ class SessionFactory:
 
     def __init__(self):
         if SessionFactory._engine == None:
-            settings = DatabaseSettings()
             SessionFactory._engine = create_engine(
-                f"postgresql+psycopg2://{settings.user}:{settings.password}@{settings.host}:{settings.port}/{settings.database}",
-                pool_size=settings.pool_size,
-                max_overflow=settings.max_overflow,
+                url=_database_settings.connection_url,
+                pool_size=_database_settings.pool_size,
+                max_overflow=_database_settings.max_overflow,
                 pool_pre_ping=True
             )
             SessionFactory._session_factory = scoped_session(
@@ -36,10 +37,10 @@ class SessionFactory:
 class SessionManager:
     """Thread-safe SQLAlchemy session manager using context protocol."""
     def __init__(self):
-        self._session_factory = SessionFactory().session_factory
+        self.session_factory = SessionFactory().session_factory
 
     def __enter__(self) -> Session:
-        self.session = self._session_factory()
+        self.session = self.session_factory()
         return self.session
 
     def __exit__(self, exc_type, exc_val, exc_tb) -> bool:
@@ -54,5 +55,5 @@ class SessionManager:
             raise e.with_traceback(exc_tb)
         finally:
             self.session.close()
-            self._session_factory.remove()
+            self.session_factory.remove()
         return False
