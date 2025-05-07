@@ -33,3 +33,8 @@ class DatabaseSettings(BaseSettings):
 
     pool_size: int | None = 10
     max_overflow: int | None = 20
+
+    @property
+    def connection_url(self) -> str:
+        """Returns the url string for the database connection."""
+        return f"postgresql+psycopg2://{self.user}:{self.password}@{self.host}:{self.port}/{self.database}"
