@@ -3,9 +3,18 @@ This repository purpose is to present a simple API using FastAPI webframework. H
 
 # How to run the project
 1. Clone the repository:
+   1. Using HTTPS:
    ```bash
-   git clone
+   git clone https://github.com/cmtabr/fastapi-template.git
     ```
+   2. Using SSH:
+   ```bash
+   git clone git@github.com:cmtabr/fastapi-template.git
+   ```
+   3. Using GitHub CLI:
+   ```bash
+   gh repo clone cmtabr/fastapi-template
+   ```
 2. Navigate to the project directory:
    ```bash
    cd fastapi-template/src
