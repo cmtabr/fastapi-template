@@ -28,15 +28,21 @@ This repository purpose is to present a simple API using FastAPI webframework. H
     pip install -r api/requirements.txt
     pip install alembic
     ```
-6. Build and run the Docker container:
+6. Create environment variables:
+   ```bash
+    bash scripts/enviroment_setup.sh
+    ```
+   This script will create a `.env` file with the necessary environment variables for the project.
+
+7. Build and run the Docker container:
    ```bash
    docker-compose up --build
    ```
-7. Run the Alembic migrations:
+8. Run the Alembic migrations:
    ```bash
     alembic upgrade head
     ```
-8. Access the API documentation:
+9. Access the API documentation:
     1. Open your web browser and go to `http://localhost:5000/docs` for Swagger UI
 
 # Project Structure
