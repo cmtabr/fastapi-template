@@ -37,7 +37,7 @@ This repository purpose is to present a simple API using FastAPI webframework. H
     alembic upgrade head
     ```
 8. Access the API documentation:
-    1. Open your web browser and go to `http://localhost:8000/docs` for Swagger UI
+    1. Open your web browser and go to `http://localhost:5000/docs` for Swagger UI
 
 # Project Structure
 ```bash
