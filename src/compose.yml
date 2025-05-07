@@ -28,13 +28,14 @@ services:
       dockerfile: Dockerfile
     # uncomment the flag below to enable hot reload
     # additionally uncomment the volumes section
-    command: uvicorn app:app --host 0.0.0.0 --port 5000 # --reload 
+    command: uvicorn api.app:app --host 0.0.0.0 --port 5000 # --reload 
+    env_file : "api/.env"
     ports:
       - 5000:5000
     # uncomment the following line to mount 
     # the local directory to the container
     # volumes:
-    #   - ./api:/app
+    #   - ./api:/app/api
     depends_on:
       database:
         condition: service_healthy

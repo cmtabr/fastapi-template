@@ -1,5 +1,0 @@
-# Ignores itself
-api/**/.dockerignore
-
-# Ignore all __pycache__ directories inside api
-api/**/__pycache__/

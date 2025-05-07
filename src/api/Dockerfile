@@ -13,4 +13,4 @@ WORKDIR /app
 
 COPY --from=base /install /usr/local
 
-COPY . .
+COPY . /app/api/
