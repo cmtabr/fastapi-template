@@ -28,7 +28,7 @@ def upgrade() -> None:
     sa.Column('email', sa.String(), nullable=False),
     sa.Column('is_active', sa.Boolean(), nullable=False),
     sa.Column('created_at', sa.DateTime(), nullable=False, server_default=sa.func.now()),
-    sa.Column('deleted_at', sa.DateTime(), nullable=True, server_default=sa.func.now()),
+    sa.Column('deleted_at', sa.DateTime(), nullable=True),
     sa.PrimaryKeyConstraint('id', 'user_id', name='pk_users'),
     sa.UniqueConstraint('user_id', name='uq_user_id'),
     sa.UniqueConstraint('username', name='uq_username'),
