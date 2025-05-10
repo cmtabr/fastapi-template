@@ -24,7 +24,8 @@ def upgrade() -> None:
         'users',
         sa.Column(
             'updated_at', 
-            sa.DateTime(), 
+            sa.DateTime(),
+            onupdate=sa.func.now(),
             nullable=True)
     )
     op.create_index(

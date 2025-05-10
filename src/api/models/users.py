@@ -1,8 +1,6 @@
-from sqlalchemy import String
+from sqlalchemy import String, func
 from sqlalchemy.orm import Mapped, mapped_column
 from sqlalchemy.types import DateTime, Enum
-
-from datetime import datetime
 
 from api.enums import UserRolesEnum
 from .shared import Base, metadata
@@ -23,10 +21,10 @@ class Users(Base):
     )
     is_active: Mapped[bool] = mapped_column(default=True)
     created_at: Mapped[DateTime] = mapped_column(
-        DateTime, default=datetime.now()
+        DateTime, server_default=func.now()
     )
     updated_at: Mapped[DateTime] = mapped_column(
-        DateTime, onupdate=datetime.now(), nullable=True
+        DateTime, onupdate=func.now(), nullable=True
     )
     deleted_at: Mapped[DateTime] = mapped_column(
         DateTime, nullable=True

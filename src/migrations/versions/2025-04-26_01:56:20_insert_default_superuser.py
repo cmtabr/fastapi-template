@@ -8,10 +8,10 @@ Create Date: 2025-04-26 01:56:18.919345
 from typing import Sequence, Union
 
 from alembic import op
+import sqlalchemy as sa
 from sqlalchemy.sql import table, column
 from sqlalchemy.types import Integer, String, Boolean, DateTime
 from sqlalchemy.dialects import postgresql as pg
-from datetime import datetime
 from uuid import uuid4
 from api.enums import UserRolesEnum
 
@@ -51,7 +51,7 @@ def upgrade() -> None:
                 'email': 'admin@admin.com',
                 'role': 'ADMIN',
                 'is_active': True,
-                'created_at': datetime.now()
+                'created_at': sa.func.now()
             }
         ]
     )
