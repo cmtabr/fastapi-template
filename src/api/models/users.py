@@ -25,6 +25,9 @@ class Users(Base):
     created_at: Mapped[DateTime] = mapped_column(
         DateTime, default=datetime.now()
     )
+    updated_at: Mapped[DateTime] = mapped_column(
+        DateTime, onupdate=datetime.now(), nullable=True
+    )
     deleted_at: Mapped[DateTime] = mapped_column(
         DateTime, nullable=True
     )
