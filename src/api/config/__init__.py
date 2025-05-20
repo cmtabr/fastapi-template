@@ -6,3 +6,4 @@ __author__ = "cmtabr"
 # Packge modules, submodules and functions importing
 from .auth_settings import AuthSettings
 from .database_settings import DatabaseSettings
+from .redis_settings import RedisSettings

@@ -5,5 +5,6 @@ __author__ = "cmtabr"
 
 # Packge modules, submodules and functions importing
 from .logger import Logger
+from .redis_client import RedisClient
 from .session_manager import SessionManager
 from .token_handler import TokenHandler
