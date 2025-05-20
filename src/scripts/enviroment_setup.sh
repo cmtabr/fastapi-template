@@ -63,4 +63,13 @@ add_var "POSTGRES_HOST" "postgres" "$API_ENV_FILE" # docker-compose service name
 add_var "POSTGRES_PORT" "5432" "$API_ENV_FILE" "$DOT_ENV_FILE"
 add_var "POSTGRES_DATABASE" "database" "$API_ENV_FILE" "$DOT_ENV_FILE"
 
+echo -e "\n# Redis enviroment variables" >> api/.env
+echo -e "\n# Redis enviroment variables" >> .env
+add_var "REDIS_HOST" "redis" "$API_ENV_FILE" # docker-compose service name
+add_var "REDIS_PORT" "6379" "$API_ENV_FILE" "$DOT_ENV_FILE"
+add_var "REDIS_USERNAME" "default" "$API_ENV_FILE" "$DOT_ENV_FILE"
+add_var "REDIS_PASSWORD" "password" "$API_ENV_FILE" "$DOT_ENV_FILE"
+add_var "REDIS_DB" "fastapi-auth-redis" "$API_ENV_FILE" "$DOT_ENV_FILE"
+
+
 printf "\n${GREEN}Enviroment Setup | Enviroment variables added to '${API_ENV_FILE}' and '${DOT_ENV_FILE}' successfully${RESET}\n"
